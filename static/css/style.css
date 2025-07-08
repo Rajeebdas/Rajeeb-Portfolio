@@ -110,6 +110,7 @@ body {
 .loading-spinner.hidden {
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
 }
 
 .spinner {
@@ -215,6 +216,80 @@ body {
     height: 100%;
     background: radial-gradient(ellipse at center, rgba(108, 92, 231, 0.1) 0%, transparent 70%);
     z-index: 1;
+    overflow: hidden;
+}
+
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-primary);
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 150px;
+    height: 150px;
+    background: var(--gradient-secondary);
+    top: 60%;
+    right: 15%;
+    animation-delay: -2s;
+}
+
+.shape-3 {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    bottom: 30%;
+    left: 20%;
+    animation-delay: -1s;
+}
+
+.shape-4 {
+    width: 120px;
+    height: 120px;
+    background: var(--gradient-secondary);
+    top: 10%;
+    right: 30%;
+    animation-delay: -3s;
+}
+
+.shape-5 {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    bottom: 20%;
+    right: 10%;
+    animation-delay: -4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+        transform: translateY(20px) rotate(240deg);
+    }
 }
 
 .hero-content {
@@ -461,6 +536,91 @@ section {
 .about-image.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Profile Section in About */
+.about-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition);
+}
+
+.about-profile.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profile-image-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--bg-tertiary);
+    box-shadow: var(--shadow-primary);
+    transition: var(--transition);
+    position: relative;
+    z-index: 2;
+}
+
+.profile-ring {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    z-index: 1;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+.profile-image-container:hover .profile-image {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-primary);
+}
+
+.profile-info {
+    max-width: 300px;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.profile-title {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.profile-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 .about-image img {
@@ -723,6 +883,18 @@ section {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
+}
+
+.explore-btn {
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: var(--transition);
+}
+
+.explore-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-primary);
 }
 
 /* Contact Section */

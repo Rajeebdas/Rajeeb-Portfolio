@@ -9,20 +9,41 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initContactForm();
     initSmoothScroll();
+    
+    // Force hide loader after DOM is loaded
+    setTimeout(() => {
+        const loader = document.getElementById('loading-spinner');
+        if (loader) {
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    }, 500);
 });
 
 // Loading spinner functionality
 function initLoader() {
     const loader = document.getElementById('loading-spinner');
     
-    window.addEventListener('load', function() {
-        setTimeout(() => {
+    // Hide loader when page is ready
+    function hideLoader() {
+        if (loader) {
             loader.classList.add('hidden');
             setTimeout(() => {
                 loader.style.display = 'none';
             }, 500);
-        }, 1000);
-    });
+        }
+    }
+    
+    // Multiple ways to hide loader
+    if (document.readyState === 'complete') {
+        hideLoader();
+    } else {
+        window.addEventListener('load', hideLoader);
+        // Fallback timeout
+        setTimeout(hideLoader, 2000);
+    }
 }
 
 // Scroll progress bar
@@ -145,7 +166,7 @@ function initScrollAnimations() {
     // Elements to animate
     const elementsToAnimate = [
         '.about-content',
-        '.about-image',
+        '.about-profile',
         '.skill-category',
         '.timeline-item',
         '.project-card',
@@ -325,12 +346,14 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Add gradient overlay effect on scroll
+// Enhanced gradient overlay effect on scroll
 window.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const sections = document.querySelectorAll('section');
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollProgress = scrolled / totalHeight;
     
-    sections.forEach(section => {
+    sections.forEach((section, index) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
         const windowHeight = window.innerHeight;
@@ -338,18 +361,37 @@ window.addEventListener('scroll', function() {
         // Calculate if section is in viewport
         if (scrolled + windowHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
             const progress = (scrolled + windowHeight - sectionTop) / (sectionHeight + windowHeight);
-            const opacity = Math.sin(progress * Math.PI) * 0.1;
+            const opacity = Math.sin(progress * Math.PI) * 0.15;
             
-            // Apply gradient overlay based on scroll position
+            // Different gradient colors for different sections
+            const gradientColors = [
+                'rgba(108, 92, 231, opacity)', // Purple
+                'rgba(253, 121, 168, opacity)', // Pink
+                'rgba(108, 92, 231, opacity)', // Purple
+                'rgba(162, 155, 254, opacity)', // Light purple
+                'rgba(253, 121, 168, opacity)'  // Pink
+            ];
+            
+            const currentColor = gradientColors[index % gradientColors.length];
+            const nextColor = gradientColors[(index + 1) % gradientColors.length];
+            
+            // Apply dynamic gradient based on scroll position
             section.style.background = `
                 linear-gradient(135deg, 
-                    rgba(108, 92, 231, ${opacity}) 0%, 
+                    ${currentColor.replace('opacity', opacity)} 0%, 
                     transparent 50%,
-                    rgba(253, 121, 168, ${opacity * 0.5}) 100%
+                    ${nextColor.replace('opacity', opacity * 0.5)} 100%
                 ),
-                ${section.style.backgroundColor || getComputedStyle(section).backgroundColor}
+                ${getComputedStyle(section).backgroundColor}
             `;
         }
+    });
+    
+    // Update hero background shapes based on scroll
+    const heroShapes = document.querySelectorAll('.shape');
+    heroShapes.forEach((shape, index) => {
+        const rate = scrollProgress * (index + 1) * 20;
+        shape.style.transform = `translateY(${rate}px) rotate(${rate * 2}deg)`;
     });
 });
 
