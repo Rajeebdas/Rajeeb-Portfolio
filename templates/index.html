@@ -620,7 +620,7 @@
                     {% endwith %}
 
                     <div class="contact-form-wrapper">
-                        <form action="{{ url_for('contact') }}" method="POST" class="contact-form" id="contact-form">
+                        <form id="contact-form" method="POST" action="https://formspree.io/f/xeozoaaq">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
@@ -650,6 +650,9 @@
                                 </button>
                             </div>
                         </form>
+                        <div id="form-success" style="display:none; color:green; text-align:center; margin-top:1rem;">
+                            Thank you! Your message has been sent.
+                        </div>
                     </div>
                 </div>
             </div>
