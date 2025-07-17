@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh - Full Stack Developer</title>
+    <title>Rajeeb - Portfolio</title>
     <meta name="description" content="Portfolio of Harsh - Full Stack Developer specializing in modern web technologies">
     <meta name="keywords" content="Full Stack Developer, Web Developer, JavaScript, React, Node.js, Python">
     
@@ -18,6 +18,24 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "eiSfYI7bpf8taNQuk",
+      });
+   })();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8GD148512"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B8GD148512');
+</script>
 </head>
 <body>
     <!-- Loading Spinner -->
@@ -34,7 +52,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <span class="brand-text">Harsh</span>
+                <span class="brand-text">Rajeeb</span>
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -78,37 +96,36 @@
                 <div class="col-12">
                     <div class="hero-content text-center">
                         <h1 class="hero-title">
-                            Hi, I'm <span class="text-gradient">Harsh</span>
+                            Hi, I'm <span class="text-gradient">Rajeeb</span>
                         </h1>
                         <h2 class="hero-subtitle">
                             <span id="typed-text">Full Stack Developer</span>
                             <span class="typing-cursor">|</span>
                         </h2>
                         <p class="hero-description">
-                            Passionate about creating innovative web solutions and bringing ideas to life through code. 
-                            Specialized in modern web technologies and always eager to tackle new challenges.
+                            Passionate about crafting innovative web solutions and bringing ideas to life through code. I specialize in modern web technologies and thrive on solving complex challenges with elegant solutions.
                         </p>
                         <div class="hero-buttons">
                             <a href="#contact" class="btn btn-primary btn-lg">
                                 <i class="fas fa-envelope me-2"></i>Get In Touch
                             </a>
-                            <a href="{{ url_for('download_resume') }}" class="btn btn-outline-light btn-lg" target="_blank">
-                                <i class="fas fa-download me-2"></i>Download Resume
+                            <a href="https://drive.google.com/file/d/1fR6rYmp3Cj2MVK9uccOjAnNNWCFs7qRW/view?usp=sharing" class="btn btn-outline-light btn-lg" target="_blank">
+                                <i class="fas fa-download me-2"></i>Resume
                             </a>
                         </div>
                         <div class="social-links">
-                            <a href="https://github.com" target="_blank" class="social-link">
+                            <a href="https://github.com/Rajeebdas" target="_blank" class="social-link">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="https://linkedin.com" target="_blank" class="social-link">
+                            <a href="https://www.linkedin.com/in/rajeeb-das-cse/" target="_blank" class="social-link">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                            <a href="https://twitter.com" target="_blank" class="social-link">
+                            <!-- <a href="https://twitter.com" target="_blank" class="social-link">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="mailto:harsh@example.com" class="social-link">
+                            <a href="dasrajeeb167@gmail.com" class="social-link">
                                 <i class="fas fa-envelope"></i>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -137,7 +154,7 @@
             <div class="row mb-5">
                 <div class="col-lg-6">
                     <div class="about-content">
-                        <h3 class="about-title">Who I Am</h3>
+                        <h3 class="about-title">Get to Know Me</h3>
                         <p class="about-text">
                             I'm a passionate Full Stack Developer with a strong foundation in modern web technologies. 
                             My journey in software development began with curiosity and has evolved into a deep love for 
@@ -151,11 +168,11 @@
                         <div class="about-highlights">
                             <div class="highlight-item">
                                 <i class="fas fa-graduation-cap"></i>
-                                <span>Computer Science Graduate</span>
+                                <span>Computer Science Student</span>
                             </div>
                             <div class="highlight-item">
                                 <i class="fas fa-code"></i>
-                                <span>2+ Years Coding Experience</span>
+                                <span>2+ Years of Practical Coding</span>
                             </div>
                             <div class="highlight-item">
                                 <i class="fas fa-project-diagram"></i>
@@ -167,13 +184,13 @@
                 <div class="col-lg-6">
                     <div class="about-profile">
                         <div class="profile-image-container">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face&auto=format&q=80" 
-                                 alt="Harsh - Developer Profile" class="profile-image">
+                            <img src="{{ url_for('static', filename='assets/profile/RajeebDas1.webp') }}" 
+                                 alt="Rajeeb - Developer Profile" class="profile-image" loading="lazy">
                             <div class="profile-ring"></div>
                         </div>
                         <div class="profile-info">
-                            <h4 class="profile-name">Harsh</h4>
-                            <p class="profile-title">Full Stack Developer</p>
+                            <h4 class="profile-name">Rajeeb Das</h4>
+                            <p class="profile-title">Aspiring Data Scientist</p>
                             <p class="profile-description">
                                 Passionate about creating innovative solutions and learning new technologies. 
                                 Always ready to take on challenging projects and collaborate with amazing teams.
@@ -203,10 +220,10 @@
                                     <i class="fab fa-js-square"></i>
                                     <span>JavaScript</span>
                                 </div>
-                                <div class="skill-item">
+                                <!-- <div class="skill-item">
                                     <i class="fab fa-react"></i>
                                     <span>React</span>
-                                </div>
+                                </div> -->
                                 <div class="skill-item">
                                     <i class="fab fa-bootstrap"></i>
                                     <span>Bootstrap</span>
@@ -251,30 +268,35 @@
                                     <i class="fab fa-git-alt"></i>
                                     <span>Git</span>
                                 </div>
-                                <div class="skill-item">
+                                <!-- <div class="skill-item">
                                     <i class="fab fa-docker"></i>
                                     <span>Docker</span>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Experience Section -->
+            <!-- Experience & Education Section -->
             <div class="row">
                 <div class="col-12">
                     <h3 class="section-subtitle text-center mb-4">Experience & Education</h3>
+                </div>
+            </div>
+            <div class="education-experience-section">
+                <!-- Education Column -->
+                <div class="education-column">
+                    <h4>Education</h4>
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <h4 class="timeline-title">Full Stack Developer Intern</h4>
-                                <p class="timeline-company">Tech Solutions Inc.</p>
-                                <p class="timeline-date">2023 - Present</p>
+                                <h4 class="timeline-title">B.Tech in Computer Science Engineering</h4>
+                                <p class="timeline-company">C.V. Raman Global University, Bhubaneswar</p>
+                                <p class="timeline-date">2022 – Present</p>
                                 <p class="timeline-description">
-                                    Developed and maintained web applications using React and Node.js. 
-                                    Collaborated with cross-functional teams to deliver high-quality software solutions.
+                                    Pursuing a comprehensive curriculum covering core computer science concepts, software development, and emerging technologies, with a focus on practical applications through projects and internships.
                                 </p>
                             </div>
                         </div>
@@ -282,31 +304,181 @@
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <h4 class="timeline-title">Bachelor of Computer Science</h4>
-                                <p class="timeline-company">University Name</p>
-                                <p class="timeline-date">2020 - 2024</p>
+                                <h4 class="timeline-title">Diploma in Tool and Die Making</h4>
+                                <p class="timeline-company">Indo Danish Tool Room, Jamshedpur</p>
+                                <p class="timeline-date">2019 - 2023</p>
                                 <p class="timeline-description">
-                                    Completed coursework in software engineering, algorithms, data structures, 
-                                    and web development. Graduated with honors.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <h4 class="timeline-title">Web Development Bootcamp</h4>
-                                <p class="timeline-company">Coding Academy</p>
-                                <p class="timeline-date">2022</p>
-                                <p class="timeline-description">
-                                    Intensive 6-month program focusing on full-stack web development, 
-                                    including modern frameworks and best practices.
+                                    Completed a comprehensive diploma program in Tool and Die Making, focusing on precision manufacturing, mechanical design, and practical workshop training.
+                                    Gained hands-on experience in using modern tools and machines, supported by industry-relevant projects and internships.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Experience Column -->
+                <div class="experience-column">
+                    <h4>Experience</h4>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Machine Learning Project - Defect Detection</h4>
+                                <p class="timeline-company">Tata Motors, Jamshedpur</p>
+                                <p class="timeline-date">May,2025 - July,2025</p>
+                                <p class="timeline-description">
+                                    Developed a CNN-based computer vision model for real-time spot welding defect detection, improving classification accuracy and supporting manufacturing quality assurance.
+                                </p>
+                                <button class="exp-cert-btn" data-cert="ml-defect">Certificate</button>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Data Science Intern</h4>
+                                <p class="timeline-company">Main Flow Services and Technologies Pvt. Ltd.</p>
+                                <p class="timeline-date">June,2024 - Aug,2024</p>
+                                <p class="timeline-description">
+                                   Worked on data analysis projects using Python and Pandas, performing cleaning,
+                                    visualization, and statistical analysis to extract insights. Showcased strong analytical and collaborative skills.
+                                </p>
+                                <button class="exp-cert-btn" data-cert="data-science-intern">Certificate</button>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4 class="timeline-title">Internships Trainee</h4>
+                                <p class="timeline-company">TATA Advanced System Ltd</p>
+                                <p class="timeline-date">July,2022 - Aug,2023</p>
+                                <p class="timeline-description">
+                                   Interned in the Quality Department, handling defect tracking, inspection, and quality documentation in a manufacturing setup.
+                                </p>
+                                <button class="exp-cert-btn" data-cert="tasl-intern">Certificate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Projects Section -->
+            <!-- <section id="projects" class="projects-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="section-title text-center">Projects</h2>
+                            <p class="section-subtitle text-center">Some of my recent work</p>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+            <!-- Certificates Section -->
+            <section id="certificates" class="certificates-section mt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="section-title text-center">Certificates</h2>
+                            <p class="section-subtitle text-center">My Professional Certifications</p>
+                        </div>
+                    </div>
+                    <div class="certificate-buttons" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem;">
+                        <button class="custom-cert-btn" data-cert="aws-fundamentals">AWS Fundamentals</button>
+                        <button class="custom-cert-btn" data-cert="data-analytics">Data Analytics</button>
+                        <button class="custom-cert-btn" data-cert="data-visualization">Data Visualization</button>
+                        <button class="custom-cert-btn" data-cert="full-stack-udemy">Full Stack Udemy</button>
+                        <button class="custom-cert-btn" data-cert="power-bi">Power BI</button>
+                        <button class="custom-cert-btn" data-cert="ux-design">UX Design</button>
+                    </div>
+                    <div id="custom-cert-gallery" class="certificate-gallery">
+                        <!-- Content will be loaded here by JS -->
+                    </div>
+                    <script>
+                        // Custom certificate button logic
+                        const certData = {
+                            'aws-fundamentals': {
+                                img: "{{ url_for('static', filename='assets/certificates/AWS Fundamentals.png') }}",
+                                title: 'AWS Fundamentals',
+                                company: 'Amazon Web Services',
+                                duration: '2024',
+                                desc: 'Completed AWS Fundamentals course.\nGained hands-on experience with core AWS services.'
+                            },
+                            'data-analytics': {
+                                img: "{{ url_for('static', filename='assets/certificates/Data Analytics.png') }}",
+                                title: 'Data Analytics',
+                                company: 'Coursera',
+                                duration: '2024',
+                                desc: 'Learned data analysis techniques and tools.\nWorked on real-world analytics projects.'
+                            },
+                            'data-visualization': {
+                                img: "{{ url_for('static', filename='assets/certificates/Data Visualization.png') }}",
+                                title: 'Data Visualization',
+                                company: 'Coursera',
+                                duration: '2024',
+                                desc: 'Mastered data visualization best practices.\nCreated interactive dashboards and charts.'
+                            },
+                            'full-stack-udemy': {
+                                img: "{{ url_for('static', filename='assets/certificates/full Stack udmy.png') }}",
+                                title: 'Full Stack Udemy',
+                                company: 'Udemy',
+                                duration: '2023',
+                                desc: 'Completed full stack web development course.\nBuilt and deployed several web applications.'
+                            },
+                            'power-bi': {
+                                img: "{{ url_for('static', filename='assets/certificates/power BI.png') }}",
+                                title: 'Power BI',
+                                company: 'Microsoft',
+                                duration: '2024',
+                                desc: 'Learned Power BI for business intelligence.\nDeveloped and published BI reports.'
+                            },
+                            'ux-design': {
+                                img: "{{ url_for('static', filename='assets/certificates/UX Design.png') }}",
+                                title: 'UX Design',
+                                company: 'Coursera',
+                                duration: '2023',
+                                desc: 'Studied user experience design principles.\nDesigned user-friendly interfaces and prototypes.'
+                            }
+                        };
+                        const gallery = document.getElementById('custom-cert-gallery');
+                        function showCertificate(cert) {
+                            const descLines = cert.desc.split('\n').map(line => `<div>${line}</div>`).join('');
+                            gallery.innerHTML = `
+                                <div class='certificate-side-by-side'>
+                                    <span id='custom-cert-close' class='custom-cert-close'>&times;</span>
+                                    <div class='certificate-side-desc'>
+                                        <h4>${cert.title}</h4>
+                                        <div class='company'>${cert.company}</div>
+                                        <div class='duration'>${cert.duration}</div>
+                                        <div class='desc'>${descLines}</div>
+                                    </div>
+                                    <div class='certificate-side-image'>
+                                        <img src='${cert.img.replace(/\.(png|jpg|jpeg)/, ".webp")}' alt='${cert.title}' loading="lazy">
+                                    </div>
+                                </div>
+                            `;
+                            gallery.classList.add('active');
+                            document.getElementById('custom-cert-close').onclick = function() {
+                                gallery.classList.remove('active');
+                                gallery.innerHTML = '';
+                            };
+                        }
+                        document.querySelectorAll('.custom-cert-btn').forEach(btn => {
+                            btn.addEventListener('click', function() {
+                                const cert = certData[this.dataset.cert];
+                                if (cert) {
+                                    showCertificate(cert);
+                                }
+                            });
+                        });
+                        document.getElementById('custom-cert-close').onclick = function() {
+                            gallery.classList.remove('active');
+                            gallery.innerHTML = '';
+                        };
+                    </script>
+                </div>
+            </section>
         </div>
     </section>
 
@@ -326,94 +498,84 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="https://pixabay.com/get/gbeaef64aefec08020506897ad0cdaaf380a2584ff11634e1b367105489319b0751364db6bfcb9e1d67153462414543828106f05b68d58b55bcfc60075b3174aa_1280.jpg" 
-                                 alt="Real-time Chat App" class="img-fluid">
+                            <img src="{{ url_for('static', filename='assets/Project-Image/burnout-gym.webp') }}" alt="Burnout Gym App" class="img-fluid" loading="lazy">
                             <div class="project-overlay">
                                 <div class="project-links">
-                                    <a href="https://github.com" target="_blank" class="project-link">
+                                    <a href="https://github.com/Rajeebdas/BurnOut-GYM-Trainer" target="_blank" class="project-link">
                                         <i class="fab fa-github"></i>
                                     </a>
-                                    <a href="#" target="_blank" class="project-link">
+                                    <a href="https://burnoutwithrajeeb.netlify.app/" target="_blank" class="project-link">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Real-time Chat Application</h3>
+                            <h3 class="project-title">Burnout Gym App</h3>
                             <p class="project-description">
-                                A full-featured chat application with real-time messaging, user authentication, 
-                                and modern UI design built with React and Socket.io.
+                                A fitness tracking and workout planning app with personalized routines and progress analytics.
                             </p>
                             <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">Socket.io</span>
-                                <span class="tech-tag">MongoDB</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://pixabay.com/get/g8a58d736f99846b5a8c0f8a0ad6c8734debe9ac21c1a0fd7822f2a418bfcb5648430c7a15160b6cf52634c70466af5855a823f089807b6b6607ea79a6750811e_1280.jpg" 
-                                 alt="E-commerce Platform" class="img-fluid">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com" target="_blank" class="project-link">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" target="_blank" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">E-commerce Platform</h3>
-                            <p class="project-description">
-                                A complete e-commerce solution with shopping cart, payment integration, 
-                                admin dashboard, and responsive design.
-                            </p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Express</span>
-                                <span class="tech-tag">Stripe</span>
-                                <span class="tech-tag">PostgreSQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="https://pixabay.com/get/gcf1c5fd66b90715a04d3c00c7deb01f8b24e157a2f373873def47e815352d26e9aa57b01d1bd18c0a9b2a32598e9e04af4f5785371dc79e144daef0080c61e74_1280.jpg" 
-                                 alt="Weather Dashboard" class="img-fluid">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com" target="_blank" class="project-link">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" target="_blank" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Weather Dashboard</h3>
-                            <p class="project-description">
-                                An interactive weather application with location-based forecasts, 
-                                beautiful visualizations, and responsive design.
-                            </p>
-                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
                                 <span class="tech-tag">JavaScript</span>
-                                <span class="tech-tag">API Integration</span>
-                                <span class="tech-tag">Chart.js</span>
-                                <span class="tech-tag">CSS3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="{{ url_for('static', filename='assets/Project-Image/hospital.webp') }}" alt="Hospital Management System" class="img-fluid" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Rajeebdas/Hospital_website" target="_blank" class="project-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://brahmanandahealthcare.netlify.app/" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Hospital Management System</h3>
+                            <p class="project-description">
+                                A web-based system for managing patient records, appointments, and billing efficiently.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="{{ url_for('static', filename='assets/Project-Image/real_estate.webp') }}" alt="Real Estate Price Predictor" class="img-fluid" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://github.com/Rajeebdas/PropPredict" target="_blank" class="project-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://proppredict.onrender.com" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Real Estate Price Predictor</h3>
+                            <p class="project-description">
+                                A machine learning app to predict house prices based on location, size, and amenities.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">scikit-learn</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">NumPy</span>
                             </div>
                         </div>
                     </div>
@@ -423,7 +585,7 @@
             <!-- Explore More Projects Button -->
             <div class="row mt-5">
                 <div class="col-12 text-center">
-                    <a href="https://github.com" target="_blank" class="btn btn-primary btn-lg explore-btn">
+                    <a href="https://github.com/Rajeebdas" target="_blank" class="btn btn-primary btn-lg explore-btn">
                         <i class="fab fa-github me-2"></i>Explore More Projects
                     </a>
                 </div>
@@ -499,7 +661,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <h4>Email</h4>
-                        <p>harsh@example.com</p>
+                        <p>dasrajeeb167@gmail.com</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
@@ -508,7 +670,7 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <h4>Phone</h4>
-                        <p>+1 (555) 123-4567</p>
+                        <p>+91 82107 74491</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
@@ -517,7 +679,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <h4>Location</h4>
-                        <p>Your City, Country</p>
+                        <p>Jamshedpur, India</p>
                     </div>
                 </div>
             </div>
@@ -530,21 +692,21 @@
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="social-links mb-3">
-                        <a href="https://github.com" target="_blank" class="social-link">
+                        <a href="https://github.com/Rajeebdas" target="_blank" class="social-link">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" class="social-link">
+                        <a href="https://www.linkedin.com/in/rajeeb-das-cse/" target="_blank" class="social-link">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://twitter.com" target="_blank" class="social-link">
-                            <i class="fab fa-twitter"></i>
+                        <a href="https://www.facebook.com/rajeeb.das.16121" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="mailto:harsh@example.com" class="social-link">
+                        <!-- <a href="mailto:dasrajeeb167@gmail.com" class="social-link">
                             <i class="fas fa-envelope"></i>
-                        </a>
+                        </a> -->
                     </div>
                     <p class="copyright">
-                        &copy; 2025 Harsh. All rights reserved.
+                        &copy; 2025 Rajeeb. All rights reserved.
                     </p>
                 </div>
             </div>
@@ -556,5 +718,62 @@
     
     <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <!-- EmailJS (MailJS) integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      (function(){
+        emailjs.init("eiSfYI7bpf8taNQuk"); // Replace with your MailJS public key
+      })();
+    </script>
+
+<!-- Modal for experience certificate -->
+<div id="exp-cert-modal" class="exp-cert-modal">
+  <span class="exp-cert-close">&times;</span>
+  <img class="exp-cert-img" src="" alt="Experience Certificate" loading="lazy">
+</div>
+
+<script>
+const expCertMap = {
+  'ml-defect': "{{ url_for('static', filename='assets/experience-certificates/Tata motors.jpg') }}",
+  'data-science-intern': "{{ url_for('static', filename='assets/experience-certificates/Screenshot 2025-07-16 234835.png') }}",
+  'tasl-intern': "{{ url_for('static', filename='assets/experience-certificates/TASL.jpeg') }}",
+  // Add more mappings as needed
+};
+
+document.querySelectorAll('.exp-cert-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const certKey = this.dataset.cert;
+    const imgSrc = expCertMap[certKey];
+    if (imgSrc) {
+      document.querySelector('.exp-cert-img').src = imgSrc;
+      document.getElementById('exp-cert-modal').classList.add('active');
+    }
+  });
+});
+document.querySelector('.exp-cert-close').onclick = function() {
+  document.getElementById('exp-cert-modal').classList.remove('active');
+  document.querySelector('.exp-cert-img').src = '';
+};
+document.getElementById('exp-cert-modal').onclick = function(e) {
+  if (e.target === this) {
+    this.classList.remove('active');
+    document.querySelector('.exp-cert-img').src = '';
+  }
+};
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6878957d01945c190e54cd57/1j0bgfta8';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

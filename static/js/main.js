@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initContactForm();
     initSmoothScroll();
+    initCertificates();
     
     // Force hide loader after DOM is loaded
     setTimeout(() => {
@@ -221,20 +222,52 @@ function initContactForm() {
         });
     });
     
-    form.addEventListener('submit', function(e) {
-        let isValid = true;
-        
-        inputs.forEach(input => {
-            if (!validateField(input)) {
-                isValid = false;
-            }
-        });
-        
-        if (!isValid) {
-            e.preventDefault();
-            showNotification('Please fill in all required fields correctly.', 'error');
-        }
-    });
+    // Helper to show a custom notification
+    function showCustomNotification(message, type = 'success') {
+      let notif = document.createElement('div');
+      notif.className = `custom-notification ${type}`;
+      notif.innerHTML = message;
+      notif.style.position = 'fixed';
+      notif.style.top = '30px';
+      notif.style.left = '50%';
+      notif.style.transform = 'translateX(-50%)';
+      notif.style.background = type === 'success' ? 'linear-gradient(90deg, #43e97b 0%, #38f9d7 100%)' : '#ff4e4e';
+      notif.style.color = '#222';
+      notif.style.padding = '1rem 2rem';
+      notif.style.borderRadius = '2rem';
+      notif.style.fontWeight = 'bold';
+      notif.style.fontSize = '1.2rem';
+      notif.style.boxShadow = '0 4px 24px rgba(0,0,0,0.15)';
+      notif.style.cursor = 'pointer';
+      notif.style.zIndex = 9999;
+      notif.style.transition = 'background 0.3s, color 0.3s';
+      notif.onmouseover = function() {
+        notif.style.background = '#222';
+        notif.style.color = '#fff';
+      };
+      notif.onmouseleave = function() {
+        notif.style.background = type === 'success' ? 'linear-gradient(90deg, #43e97b 0%, #38f9d7 100%)' : '#ff4e4e';
+        notif.style.color = '#222';
+      };
+      document.body.appendChild(notif);
+      setTimeout(() => {
+        notif.remove();
+      }, 4000);
+    }
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        emailjs.sendForm('service_vhypbll', 'template_hihb57i', this)
+          .then(function() {
+            showCustomNotification('Message sent successfully!');
+            contactForm.reset();
+          }, function(error) {
+            alert('Failed to send message: ' + JSON.stringify(error));
+          });
+      });
+    }
     
     function validateField(field) {
         const value = field.value.trim();
@@ -267,6 +300,52 @@ function initContactForm() {
     function clearErrors(field) {
         field.classList.remove('is-invalid');
     }
+
+function initCertificates() {
+    const contents = document.querySelectorAll('.certificate-content');
+    const preview = document.getElementById('certificate-preview');
+    const showBtn = document.getElementById('show-certificate-btn');
+
+    let currentIndex = 0;
+    function showCertificate(index) {
+        contents.forEach((content, i) => {
+            if (i === index) {
+                content.classList.add('active');
+                // Fallback: check if image exists, else show message
+                const img = content.querySelector('img');
+                if (img) {
+                    img.onerror = function() {
+                        this.style.display = 'none';
+                        if (!content.querySelector('.img-fallback')) {
+                            const fallback = document.createElement('div');
+                            fallback.className = 'img-fallback';
+                            fallback.textContent = 'Certificate image not found.';
+                            fallback.style.color = '#ff7675';
+                            fallback.style.fontWeight = 'bold';
+                            fallback.style.marginTop = '20px';
+                            content.querySelector('.certificate-image').appendChild(fallback);
+                        }
+                    };
+                    img.style.display = '';
+                    const fallback = content.querySelector('.img-fallback');
+                    if (fallback) fallback.remove();
+                }
+            } else {
+                content.classList.remove('active');
+            }
+        });
+    }
+
+    if (showBtn) {
+        showBtn.addEventListener('click', () => {
+            showCertificate(currentIndex);
+            currentIndex = (currentIndex + 1) % contents.length;
+        });
+    }
+
+    // Hide all certificates by default
+    contents.forEach(content => content.classList.remove('active'));
+}
 }
 
 // Smooth scrolling for anchor links
